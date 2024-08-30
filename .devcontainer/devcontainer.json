@@ -1,0 +1,10 @@
+{
+    "name": "Python Dev Environment",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "extensions": [
+      "ms-python.python"
+    ],
+    "settings": {
+      "workbench.colorTheme": "Default Dark+"
+    }
+  }
