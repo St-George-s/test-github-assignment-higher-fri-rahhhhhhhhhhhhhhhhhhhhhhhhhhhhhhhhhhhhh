@@ -50,7 +50,7 @@ def findYoung(age):
 
 # procedure to do a linear search based on a user name and print details for any matches
 def findDetails(name, pokemon, age, hobby, job, fallout):
-    searchName = input("find details of: ")
+    searchName = input("find details of: ") 
     for x in range(len(name)):
         if searchName == name[x]:
             print(name[x] +" is "+ age[x]+" years old, their job is " +job[x]+", their favourite pokemon is "+pokemon[x]+", their favourite fallout is "+fallout[x]+", and their hobby is " +hobby[x])
