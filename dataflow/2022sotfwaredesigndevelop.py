@@ -9,7 +9,7 @@ def newmember():
 
 
 def readdisplayfile(firstname, lastname, category, password):
-    with open("\members.csv", "r") as file:
+    with open("dataflow/members.csv", "r") as file:
           firstname=[]
           lastname=[]
           category=[]
@@ -25,3 +25,18 @@ def readdisplayfile(firstname, lastname, category, password):
 
 
 def numbercategory(category):
+     search = input("what category to count- Junior, Adult, Senior: ")
+     counter=0
+     for x in range (len(category)):
+          if category[x].lower() == search.lower():
+               counter=counter+1
+     print(counter)
+               
+               
+          
+
+globalfirstname, globallastname, globalcategory, globalpassword = newmember()
+globalreaddisplay=readdisplayfile(globalfirstname, globallastname, globalcategory, globalpassword)
+numbercategory(globalcategory)
+
+
