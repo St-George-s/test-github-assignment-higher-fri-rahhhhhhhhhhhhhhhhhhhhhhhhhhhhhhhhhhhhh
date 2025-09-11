@@ -10,10 +10,10 @@ def newmember():
 
 def readdisplayfile(firstname, lastname, category, password):
     with open("dataflow/members.csv", "r") as file:
-          firstname=[]
-          lastname=[]
-          category=[]
-          password=[]
+          firstname=[firstname]
+          lastname=[lastname]
+          category=[category]
+          password=[password]
           reader = csv.reader(file)
           for row in reader:
                firstname.append(row[0])
@@ -31,12 +31,23 @@ def numbercategory(category):
           if category[x].lower() == search.lower():
                counter=counter+1
      print(counter)
-               
-               
-          
+
+def validpassword(password):
+     valid=False
+     while not valid:
+          password=input("enter password: ")
+          if ord(password[0]) >=65 and ord(password[0])<=90 and ord(password[-1])>=35 and ord(password[-1])<=37:
+               print("valid")
+               valid = True
+          else:
+               print("invalid")
+               valid=False
+
+
+
 
 globalfirstname, globallastname, globalcategory, globalpassword = newmember()
-globalreaddisplay=readdisplayfile(globalfirstname, globallastname, globalcategory, globalpassword)
+globalcategory=readdisplayfile(globalfirstname, globallastname, globalcategory, globalpassword)
 numbercategory(globalcategory)
-
+validpassword(globalpassword)
 
