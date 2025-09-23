@@ -30,6 +30,7 @@ def leastmostattract(attraction, visitors):
     print("the most visited attraction is: " + attraction[mostvisited])
     print("the least visited attraction is: " + attraction[leasvisited])
 
+#procedure to write names of attractions that need service to a csv file
 def needservice(attraction, category, daysOpen):
     with open("dataflow/service.csv", "w") as file:
         for x in range(len(category)):
