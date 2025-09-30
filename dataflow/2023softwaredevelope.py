@@ -20,30 +20,27 @@ def readfile():
 
 # procedure to find the attractions with most/least amount of visitors
 def leastmostattract(attraction, visitors):
-    leasvisited = 0
-    mostvisited = 0
-    for x in range(len(visitors)):
-        if visitors[x] < visitors[leasvisited]:
-            leasvisited = x
-        if visitors[x] > visitors[mostvisited]:
-            mostvisited = x
-    print("the most visited attraction is: " + attraction[mostvisited])
-    print("the least visited attraction is: " + attraction[leasvisited])
+    leastVisited = 0
+    mostVisited = 0
+    for x in range(1, len(visitors)):
+        if visitors[x] < visitors[leastVisited]:
+            leastVisited = x
+        if visitors[x] > visitors[mostVisited]:
+            mostVisited = x
+    print("the most visited attraction is: " + attraction[mostVisited])
+    print("the least visited attraction is: " + attraction[leastVisited])
+
 
 #procedure to write names of attractions that need service to a csv file
 def needservice(attraction, category, daysOpen):
     with open("dataflow/service.csv", "w") as file:
+        writer = csv.writer(file)
         for x in range(len(category)):
           if category[x] == "Roller Coaster":
-              days = daysOpen[x] % 90
-              if (90-days) <= 7:
-                  file.write(attraction[x])
+              days = daysOpen[x] % 90 
+              if (90-days) <= 7: # check if 7 or less days until repair needed
+                  writer.writerow([attraction[x]])
                   
-                  
-              
-
-    
-
 
 #main program
 globalattraction, globalcategory, globalvisitors, globaldaysopen, globalheight = readfile()
