@@ -2,7 +2,7 @@ import csv
 
 #function to read csv file into paralell arrays 
 def readfile():
-    with open("dataflow/attractions.csv", "r") as file:
+    with open("software/parallel arrays/attractions.csv", "r") as file:
         attraction=[]
         category=[]
         visitors=[]
@@ -33,7 +33,7 @@ def leastmostattract(attraction, visitors):
 
 #procedure to write names of attractions that need service to a csv file
 def needservice(attraction, category, daysOpen):
-    with open("dataflow/service.csv", "w") as file:
+    with open("software/parallel arrays/service.csv", "w") as file: # create new csv file
         writer = csv.writer(file)
         for x in range(len(category)):
           if category[x] == "Roller Coaster":

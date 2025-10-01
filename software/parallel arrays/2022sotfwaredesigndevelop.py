@@ -1,4 +1,5 @@
 import csv
+
 #Function to get information of a new member
 def newmember(): 
     firstname = input("enter first name: ")
@@ -7,10 +8,11 @@ def newmember():
     password=input("enter password: ")
     return firstname, lastname, category, password
 
+
 # procedure to read csv file into paralel arrays
 def readdisplayfile(firstname, lastname, category, password):
     #opens csv file in read mode
-    with open("dataflow/members.csv", "r") as file:
+    with open("software/parallel arrays/members.csv", "r") as file:
           firstname=[firstname]
           lastname=[lastname]
           category=[category]
@@ -21,8 +23,8 @@ def readdisplayfile(firstname, lastname, category, password):
                lastname.append(row[1])
                category.append(row[2])
                password.append(row[3])
-
     return category
+
 
 #procedure to count amount of people in specific category
 def numbercategory(category): 
@@ -32,6 +34,7 @@ def numbercategory(category):
           if category[x].lower() == search.lower():
                counter=counter+1
      print(counter)
+
 
 #procedure to check if password is valid or not
 def validpassword(password):
@@ -45,7 +48,6 @@ def validpassword(password):
           else:
                print("invalid")
                valid=False
-
 
 
 #main program
