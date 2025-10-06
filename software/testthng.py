@@ -21,26 +21,26 @@ def readGameDataFromCSV():
 
 
 # Procedure to count amount of games in specific genre that are suitable for under 18yrs
-def CountSuitableGames(gameTitles, genres, ageRatings, genre_to_check, platform):
+def countSuitableGames(gameTitles, genres, ageRatings, genre_to_check, platform):
     count = 0
     for x in range(len(gameTitles)):
        if genres[x] == genre_to_check and ageRatings[x] <18: # Checks if the position has the correct genre and if its suitable for under 18yrs
           print(gameTitles[x])
           count = count + 1
-    print(count)
+    print("total games with " + genre_to_check + " genre is: " + str(count))
 
 
 # Procedure to write names of games from specific genre that are suitable for under 18yrs to a txt file and show the platform they can be played on
-def CountSuitableGamesPlatform(gameTitles, genres, ageRatings, genre_to_check, platform):
+def countSuitableGamesPlatform(gameTitles, genres, ageRatings, genre_to_check, platform_to_check):
     count = 0
     with open("software/platform_suitable_games.txt", "w") as file:
         for x in range(len(gameTitles)):
             if genres[x] == genre_to_check and ageRatings[x] <18:
-               file.write(gameTitles[x] + " - " + platform[x])
+               file.write(gameTitles[x] + " - " + platform_to_check[x])
                file.write("\n")
 
                
 #main
 globalgameTitles, globalgenres, globalageRatings, globalplatform = readGameDataFromCSV()
-CountSuitableGames(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
-CountSuitableGamesPlatform(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
+countSuitableGames(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
+countSuitableGamesPlatform(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
