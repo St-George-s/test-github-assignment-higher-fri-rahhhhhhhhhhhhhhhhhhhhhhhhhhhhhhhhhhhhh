@@ -8,6 +8,7 @@ class Game():
        self.ageRating = ageRating
        self.platform = platform
 
+
 # Function to read data from CSV file into paralel arrays
 def readGameDataFromCSV():
     games = []
@@ -20,30 +21,31 @@ def readGameDataFromCSV():
     return games
 
 
-
-
 # Procedure to count amount of games in specific genre that are suitable for under 18yrs
-def countSuitableGames(games):
+def countSuitableGames(games, genre_to_check):
     count = 0
-    for x in range(len(gameTitles)):
-       if genres[x] == genre_to_check and ageRatings[x] <18: # Checks if the position has the correct genre and if its suitable for under 18yrs
-          print(gameTitles[x])
+    for x in range(len(games)):
+       if games[x].genre == genre_to_check and games[x].ageRating <18: # Checks if the position has the correct genre and if its suitable for under 18yrs
+          print(games[x].gameTitle)
           count = count + 1
     print("total games with " + genre_to_check + " genre is: " + str(count))
 
 
 # Procedure to write names of games from specific genre that are suitable for under 18yrs to a txt file and show the platform they can be played on
-def countSuitableGamesPlatform(games):
+def countSuitableGamesPlatform(games, genre_to_check, platform_to_check):
     count = 0
     with open("software/platform_suitable_games.txt", "w") as file:
-        for x in range(len(gameTitles)):
-            if genres[x] == genre_to_check and ageRatings[x] <18:
+        for x in range(len(games)):
+            if games[x].genre == genre_to_check and games[x].ageRating <18 and games[x].platform == platform_to_check:
                count = count + 1
-               file.write(gameTitles[x] + " - " + platform_to_check[x])
+               file.write(games[x].gameTitle + " - " + games[x].platform)
                file.write("\n")
+    print("total games in " + genre_to_check + " genre that are available on " + platform_to_check + " is: " + str(count))            
+
 
 #main
-globalgameTitles, globalgenres, globalageRatings, globalplatform = readGameDataFromCSV()
-genre_to_check = input("genre to check: ")
-countSuitableGames(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
-countSuitableGamesPlatform(globalgameTitles, globalgenres, globalageRatings, genre_to_check, globalplatform)
+games = readGameDataFromCSV()
+genre_to_check = "Fantasy"
+platform_to_check = "PC"
+countSuitableGames(games, genre_to_check)
+countSuitableGamesPlatform(games, genre_to_check, platform_to_check)
