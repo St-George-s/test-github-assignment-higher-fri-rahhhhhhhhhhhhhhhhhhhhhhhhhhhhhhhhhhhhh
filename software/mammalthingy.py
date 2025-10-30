@@ -18,7 +18,7 @@ def readDataFromTXT():
 
 
 def findOldestWalker(sightings):
-    
+     
     maximumValue = age[0]
     for counter in range(len(age)):
         if age[counter] > maximumValue: 
