@@ -1,12 +1,17 @@
--- SELECT album_name, release_year 
--- FROM Albums 
--- WHERE release_year >= 2015 
--- ORDER BY release_year ASC;
-
--- SELECT track_name
+-- SELECT * 
 -- FROM Tracks 
--- WHERE track_name LIKE 'S%e';
+-- WHERE album_id IN (
+--   SELECT album_id 
+--   FROM Albums 
+--   WHERE release_year > 2018
+--  );
 
+-- SELECT T.track_name, A.album_name 
+-- FROM Tracks T, Albums A
+-- WHERE T.album_id = A.album_id
+-- AND A.release_year > 2020;
 
-
-
+SELECT T.track_name, A.album_name 
+FROM Tracks T 
+JOIN Albums A ON T.album_id = A.album_id 
+WHERE A.release_year > 2020;
