@@ -1,1 +1,6 @@
-DESCRIBE ALL TABLES;
+-- SELECT g.gnomeName, SUM(gp.quantity) AS 'Total gnomes sold'
+-- FROM Gnome g
+-- JOIN GnomePurchase gp ON g.gnomeID = gp.gnomeID
+-- WHERE g.description LIKE '%solar%'
+-- GROUP BY gnomeName
+-- ORDER BY SUM(quantity) DESC;
