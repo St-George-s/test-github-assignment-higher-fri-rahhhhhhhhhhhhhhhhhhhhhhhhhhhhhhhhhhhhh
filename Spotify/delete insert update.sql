@@ -41,4 +41,3 @@
 -- UPDATE Tracks
 -- SET genre_id = 2
 -- WHERE track_id = 2;
-
