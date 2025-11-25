@@ -3,7 +3,7 @@
 -- FROM Planner p
 -- JOIN Route r ON p.plannerNo = r.plannerNo
 -- JOIN Walk w ON r.routeID = w.routeID
--- GROUP BY p.plannerNo
+-- GROUP BY p.plannerN
 -- ORDER BY count(w.walkID) DESC;
 
 -- 2c
