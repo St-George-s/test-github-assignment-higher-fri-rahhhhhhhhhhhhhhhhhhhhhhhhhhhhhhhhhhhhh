@@ -16,3 +16,11 @@
 -- SET endTime = '19:30'
 -- WHERE showID = '2';
 
+
+-- PART C
+-- SELECT s.showName, COUNT(v.ratingID) AS 'Total Ratings'
+-- FROM Show s
+-- JOIN Episode e ON s.showID = e.showID
+-- JOIN ViewerRating v ON e.episodeID = v.episodeID
+-- GROUP BY s.showName
+-- ORDER BY COUNT(v.ratingID) DESC;
