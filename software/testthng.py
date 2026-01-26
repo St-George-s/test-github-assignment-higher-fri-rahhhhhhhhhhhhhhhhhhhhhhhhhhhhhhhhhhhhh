@@ -26,7 +26,7 @@ def countSuitableGames(gameTitles, genres, ageRatings, genre_to_check, platform)
     for x in range(len(gameTitles)):
        if genres[x] == genre_to_check and ageRatings[x] <18: # Checks if the position has the correct genre and if its suitable for under 18yrs
           print(gameTitles[x])
-          count = count + 1
+          count += 1
     print("total games with " + genre_to_check + " genre is: " + str(count))
 
 
