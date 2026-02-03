@@ -15,3 +15,11 @@
 -- WHERE v.voucherID = "V543";
 
 
+SELECT s.supplierName, v.voucherName, v.price, COUNT(co.custID) AS "Number of Customers"
+FROM Supplier s
+JOIN Voucher v ON s.supplierCode = v.supplierCode
+JOIN CustomerOrder co ON v.voucherID = co.voucherID
+WHERE v.category = "Family"
+AND v.price < 15
+GROUP BY v.voucherName
+ORDER BY COUNT(co.custID) DESC;
