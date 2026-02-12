@@ -3,11 +3,10 @@
 -- JOIN Booking b ON c.customerID = b.customerID
 -- WHERE c.customerID = "GR01932" AND b.flightID = "QH182";
 
-SELECT MAX(childTicket) AS "maxChildren"
-FROM Booking
-
 SELECT c.forename, c.surname
 FROM Customer c 
 JOIN Booking b ON c.customerID = b.customerID
-WHERE b.childTicket
-GROUP BY c.customerID;
+WHERE b.childTicket = (
+    SELECT MAX(childTicket)
+    FROM Booking b
+);
