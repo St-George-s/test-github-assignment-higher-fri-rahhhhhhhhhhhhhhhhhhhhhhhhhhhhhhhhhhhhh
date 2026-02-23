@@ -1,7 +1,7 @@
 import csv
 
 #function to read the CSV file into parallel arrays
-def getdata():
+def getData():
     with open("software/parallel arrays/athletes.csv", "r") as file:
          entryID=[]
          location=[]
@@ -17,16 +17,17 @@ def getdata():
               jumps.append(int(row[4])) #assigns each row of the CSV file into a paralell array
     return entryID, location, forename, surname, jumps
 
-
-def genbibvalue(entryID, location, forename, surname):
+# Gnerate bib values and write to new file
+def generateBibValue(entryID, location, forename, surname):
     with open("software/parallel arrays/bibValues.csv", "w") as file:
          for x in range(len(entryID)):
-            bibValue = forename[x][0] + surname[x] + str(ord(location[x][0])) #takes first letter from forename, the surname and the ascii value of the first letter of the location to create the bib value
+            #takes first letter from forename, the surname and the ascii value of the first letter of the location to create the bib value
+            bibValue = forename[x][0] + surname[x] + str(ord(location[x][0])) 
             file.write(entryID[x] + " " + bibValue)
             file.write("\n")
 
 #funtion to find the highest number of jumps that was achieved
-def maxjump(jumps):
+def findMaxJump(jumps):
     maxJumps = jumps[0]
     for x in range(1, len(jumps)): #
         if jumps[x] > maxJumps:
@@ -34,13 +35,13 @@ def maxjump(jumps):
     return maxJumps
 
 #procedure to find and display the names of the athletes who have the highest number of jumps
-def findmaxjumpers(maxJumps, forename, surname, jumps):
+def findMaxJumpers(maxJumps, forename, surname, jumps):
     for x in range (len(jumps)):
         if jumps[x] == maxJumps:
             print(forename[x] + " " + surname[x])
 
-
-def findnumfinalists(location):
+# COMMENT HERE
+def findNumFinalists(location):
     invCount = 0
     kirCount = 0
     coaCount = 0
@@ -60,8 +61,10 @@ def findnumfinalists(location):
     print("Motherwell has " + str(motCount) + " finalists.")
 
 #main
-entryID, location, forename, surname, jumps = getdata()
-genbibvalue(entryID, location, forename, surname)
-maxJumps = maxjump(jumps)
-findmaxjumpers(maxJumps, forename, surname, jumps)
-findnumfinalists(location)
+# entryID, location, forename, surname, jumps = getdata()
+# genbibvalue(entryID, location, forename, surname)
+# maxJumps = maxjump(jumps)
+# findmaxjumpers(maxJumps, forename, surname, jumps)
+# findnumfinalists(location)
+
+findMaxJump([100,87,102,108,95])
