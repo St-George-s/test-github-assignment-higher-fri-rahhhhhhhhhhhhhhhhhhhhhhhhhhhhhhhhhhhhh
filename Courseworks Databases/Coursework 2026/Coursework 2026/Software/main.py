@@ -1,6 +1,6 @@
 import csv
 
-# procedure to read csv file into paralel arrays
+# function to read csv file into paralel arrays
 def readFile():
     #opens csv file in read mode
     with open("Courseworks Databases/Coursework 2026/Coursework 2026/Software/tools.csv", "r") as file:
@@ -19,7 +19,7 @@ def readFile():
 
     return tool, manufacturer, dateRented, returned, fee
 
-
+# procedure to find and display each tool and the total number of tools from a chosen manufacturer 
 def findManufactureTools(tool, manufacturer): 
      chosenManufacturer = "BrownTech"
      count = 0
@@ -39,7 +39,7 @@ def calcuLateFee(dateRented, returned, fee):
                     fee[x] += 5
      return fee
 
-# write tool name, date rented, and fee amount of tools with a late fee to an external file
+# procedure to write tool name, date rented, and fee amount of tools with a late fee to an external file
 def writeLateTools(tool, dateRented, fee):
     with open("Courseworks Databases/Coursework 2026/Coursework 2026/Software/lateTools.csv", "w") as file:
         for x in range(len(tool)):
