@@ -1,1 +1,23 @@
-DESCRIBE ALL TABLES;
+-- 2b
+-- SELECT p.forename, p.surname, p.plannerNo, count(w.walkID)
+-- FROM Planner p
+-- JOIN Route r ON p.plannerNo = r.plannerNo
+-- JOIN Walk w ON r.routeID = w.routeID
+-- GROUP BY p.plannerN
+-- ORDER BY count(w.walkID) DESC;
+
+-- 2c
+-- SELECT wa.walkerNo, wa.forename, wa.surname, wa.telNo
+-- FROM Walker wa
+-- JOIN Walk w ON wa.walkerNo = w.walkerNo
+-- JOIN Route r ON w.routeID = r.routeID
+-- WHERE r.distance = (
+--     SELECT max(distance)
+--     FROM Route
+-- )
+-- GROUP BY wa.walkerNo;
+
+--2d
+-- SELECT Route.routeID, woodName, description
+-- FROM Route
+-- WHERE footwear LIKE '%shoe%';
