@@ -3,7 +3,7 @@
 -- JOIN Booking b ON c.customerID = b.customerID
 -- WHERE c.customerID = "GR01932" AND b.flightID = "QH182";
 
-SELECT c.forename, c.surname
+SELECT c.forename, c.surname, ROUND(b.childTicket,2)
 FROM Customer c 
 JOIN Booking b ON c.customerID = b.customerID
 WHERE b.childTicket = (
